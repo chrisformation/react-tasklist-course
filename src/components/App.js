@@ -15,9 +15,10 @@ class App extends Component {
   }
 
   handleSubmitAddTask = (event) => {
-    const labelNewTask = event.target.elements.taskname.value;
-    console.log(labelNewTask);
     event.preventDefault();
+    const labelNewTask = event.target.elements.taskname.value;
+
+    this.setState({tasks: [...this.state.tasks, {label: labelNewTask}]});
   }
 
   render() {
