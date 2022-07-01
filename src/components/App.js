@@ -1,11 +1,25 @@
 import '../assets/App.css';
+import React, {Component} from 'react';
+import Task from "./Task";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Tasklist</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      tasks: [
+        {label: "Aller boire une bière"},
+        {label: "Faire le ménage"}
+      ],
+    }
+  }
+  render() {
+    return (
+        <>
+          {this.state.tasks.map((task, index) => <Task key={index} label={task.label} />)}
+        </>
+    );
+  }
 }
 
 export default App;
